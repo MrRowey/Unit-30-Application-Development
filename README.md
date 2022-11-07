@@ -1,8 +1,11 @@
-# Application Develpment
+## Application Develpment
 
-## Language Selected: C#
+Application Theme: NHS Call center System With Backend Administrave Systmes
 
-## Application Theame: NHS Call Center System
+DB Schema: https://dbdiagram.io/d/628c0a38f040f104c180c918
+
+Langauage Selected: C# & Web
+
 
 ## Applcaion Requirements
 
@@ -41,15 +44,3 @@
 - all staff will handle routine callses if not high risk cases are happing
 - pay on bankholidays and nights get a 25% hight rate to the day shift
 - A Large display screen showing the staff the Succses rate by hour, Dat, Week and team
-
-
-### Database tables (WIP)
-- People
-- Staff
-- Patients
-- Accounts
-- Finance
-- Wages
-- Statitics
-- Staff Clocks
-- AI System (Use for ranome num gen)

@@ -1,0 +1,125 @@
+Table Calls as Cs {
+  ID int(8) [pk,increment]
+  PacientID int(8) [ref: > Patients.ID]
+  CallRecived timestamp
+  CallDuration timetz
+  CallRecording data
+  Ai_Responce int(2) [ref: > AiRsponecses.ID]
+  AmbulaceSent boolean
+  HandlerID int(8) [ref: > Staff.ID]
+  CallElevated int(1)
+  CallOutcome varchar(50)
+  NusianceCall boolean
+}
+
+Table AiRsponecses {
+  ID int(2) [pk,increment]
+  Questions varchar(100)
+}
+
+Table Staff as s {
+  ID int(8) [pk, increment]
+  PersonID int(8)
+  RoleID int(2)
+  AccountID int(8)
+  ClocksID int(8)
+  TeamID int(8) [ref: > Teams.ID]
+}
+
+Table Teams as t {
+  ID int(8) [pk,increment]
+  TeamName varchar(50)
+  
+}
+
+Table Clocks as c {
+  ID int(8) [pk,increment]
+  ClockIn timestamptz
+  Breck timestamptz
+  ClockOut timestamptz
+}
+
+Table Roles as r {
+  ID int(8) [pk, increment]
+  Role varchar(30)
+}
+
+Table Patients as pa {
+  ID int(8) [pk, increment]
+  PersonID int(4)
+  MobNumber int(11)
+  LocationId int(4)
+  
+}
+
+Table Accounts as a {
+  ID int(8) [pk,increment]
+  Account int(8)  
+}
+
+Table PAYE {
+  ID int(8) [pk, increment]
+  StaffID int(8)
+  PayRateID int(8)
+}
+
+Table PayRate {
+  ID int(8) [pk,increment]
+  PayRateValue int(8)
+}
+
+Table Locaion as l {
+  ID int(8) [pk, increment]
+  FirstLine varchar(50)
+  HomeNumber int(4)
+  TownID int(4)
+  CountyID int(4)
+  Postcode varchar(8)
+}
+
+Table LocationTown as lt {
+  ID int(8) [pk,increment]
+  Name varchar(100)
+}
+
+Table LocationCounty as lc {
+  ID int(8) [pk, increment]
+  Name varchar(100)
+}
+
+Table Person as p {
+  ID int(8) [pk, increment]
+  Forename varchar(50)
+  Surname varchar(50)
+}
+
+ref {
+l.TownID > lt.ID
+}
+ref {
+l.CountyID > lc.ID
+}
+ref {
+  s.RoleID > r.ID
+}
+ref{
+pa.LocationId > l.ID
+}
+ref{
+a.ID > s.AccountID
+}
+ref{
+s.PersonID > p.ID
+}
+ref {
+pa.PersonID > p.ID
+}
+ref{
+s.ID > PAYE.StaffID
+}
+ref{
+PAYE.PayRateID < PayRate.ID
+}
+ref {
+  s.ClocksID > Clocks.ID
+}

@@ -1,0 +1,34 @@
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.exe
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.deps.json
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.runtimeconfig.json
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.pdb
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\ZstdNet.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.csproj.AssemblyReference.cache
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP_MarkupCompile.cache
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP_MarkupCompile.lref
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\App.baml
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.g.resources
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.AssemblyInfoInputs.cache
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.AssemblyInfo.cs
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.csproj.CoreCompileInputs.cache
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.csproj.CopyComplete
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\refint\NHS CALL APP.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.pdb
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.genruntimeconfig.cache
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\ref\NHS CALL APP.dll
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\MainApp\Dashboard.g.cs
+C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\MainApp\Dashboard.baml

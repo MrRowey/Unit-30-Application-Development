@@ -1,4 +1,15 @@
-<php? />
+<?php
+$servername = "{{ secrets.DB_SERVER}}";
+$username = "{{ secrets.DB_USERNAME}}";
+$password = "{{ secrets.DB_PASSWORD}}";
+
+$conn = mysqli_connect($servername, $username, $password);
+
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
+}
+echo "Connected Suscsusfuly"
+?>
 <html>
 <head lang="en">
     <meta charset="UTF-8">

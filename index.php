@@ -1,14 +1,14 @@
 <?php
-$servername = "";
-$username = "";
-$password = "";
+#$servername = "";
+#$username = "";
+#$password = "";
 
-$conn = mysqli_connect($servername, $username, $password);
+#$conn = mysqli_connect($servername, $username, $password);
 
-if (!$conn) {
-    die("Connection Failed: " . mysqli_connect_error());
-}
-echo "Connected Suscsusfuly"
+#if (!$conn) {
+#   die("Connection Failed: " . mysqli_connect_error());
+#}
+#echo "Connected Suscsusfuly"
 ?>
 <html>
 <head lang="en">

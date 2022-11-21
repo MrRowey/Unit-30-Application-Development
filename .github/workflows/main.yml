@@ -1,4 +1,8 @@
 name: Deploy WebApp
+env:
+  DB_SERVER: ${{ secrets.DB_SERVER}}
+  DB_USERNAME: ${{ secrets.DB_USERNAME}}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD}}
 
 on:
   push:

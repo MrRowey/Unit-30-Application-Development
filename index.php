@@ -1,7 +1,7 @@
 <?php
-$servername = "{{ secrets.DB_SERVER}}";
-$username = "{{ secrets.DB_USERNAME}}";
-$password = "{{ secrets.DB_PASSWORD}}";
+$servername = "{{secrets.DB_SERVER}}";
+$username = "{{secrets.DB_USERNAME}}";
+$password = "{{secrets.DB_PASSWORD}}";
 
 $conn = mysqli_connect($servername, $username, $password);
 

@@ -7,18 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MainApp\Dashboard.xaml.cs">
+    <Compile Update="CallSystem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainApp\Page1.xaml.cs">
+    <Compile Update="Menu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainApp\Dashboard.xaml">
+    <Page Update="CallSystem.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainApp\Page1.xaml">
+    <Page Update="Menu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

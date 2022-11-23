@@ -993,11 +993,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rowjo\\source\\repos\\NHS CALL APP\\NHS CALL APP\\NHS CALL APP.csproj",
+      "projectUniqueName": "D:\\Github Repo's\\MrRowey\\Uni-Application-Development\\NHS CALL APP\\NHS CALL APP.csproj",
       "projectName": "NHS CALL APP",
-      "projectPath": "C:\\Users\\rowjo\\source\\repos\\NHS CALL APP\\NHS CALL APP\\NHS CALL APP.csproj",
+      "projectPath": "D:\\Github Repo's\\MrRowey\\Uni-Application-Development\\NHS CALL APP\\NHS CALL APP.csproj",
       "packagesPath": "C:\\Users\\rowjo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rowjo\\source\\repos\\NHS CALL APP\\NHS CALL APP\\obj\\",
+      "outputPath": "D:\\Github Repo's\\MrRowey\\Uni-Application-Development\\NHS CALL APP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

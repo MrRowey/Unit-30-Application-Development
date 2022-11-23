@@ -53,7 +53,7 @@ namespace NHS_CALL_APP {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NHS CALL APP;component/mainapp/dashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NHS CALL APP;V1.0.0.0;component/mainapp/dashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\MainApp\Dashboard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

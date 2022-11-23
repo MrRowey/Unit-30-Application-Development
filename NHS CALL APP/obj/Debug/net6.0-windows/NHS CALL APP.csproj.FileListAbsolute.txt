@@ -32,3 +32,41 @@ C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\N
 C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\ref\NHS CALL APP.dll
 C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\MainApp\Dashboard.g.cs
 C:\Users\rowjo\source\repos\NHS CALL APP\NHS CALL APP\obj\Debug\net6.0-windows\MainApp\Dashboard.baml
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.csproj.AssemblyReference.cache
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\MainWindow.g.cs
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\Menu.g.cs
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\App.g.cs
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP_MarkupCompile.cache
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP_MarkupCompile.lref
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\refint\NHS CALL APP.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.pdb
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\CallSystem.g.cs
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.exe
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.deps.json
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.runtimeconfig.json
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\NHS CALL APP.pdb
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\Google.Protobuf.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\MySql.Data.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\ZstdNet.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\App.baml
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\MainWindow.baml
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\Menu.baml
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\CallSystem.baml
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.g.resources
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.AssemblyInfoInputs.cache
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.AssemblyInfo.cs
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.csproj.CoreCompileInputs.cache
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.csproj.CopyComplete
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP.genruntimeconfig.cache
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\ref\NHS CALL APP.dll
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\bin\Debug\net6.0-windows\Images\logo.png
+D:\Github Repo's\MrRowey\Uni-Application-Development\NHS CALL APP\obj\Debug\net6.0-windows\NHS CALL APP_Content.g.cs

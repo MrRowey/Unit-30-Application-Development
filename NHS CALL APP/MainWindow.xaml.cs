@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using MySql.Data.MySqlClient;
 
 namespace NHS_CALL_APP
 {
@@ -26,9 +27,19 @@ namespace NHS_CALL_APP
             InitializeComponent();
         }
 
+
+
+
+
+
+
+
+
+
+
+        // Dark Theme
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
-
         private void toggleTheme(object sender, RoutedEventArgs e)
         {
             ITheme theme = paletteHelper.GetTheme();
@@ -43,19 +54,47 @@ namespace NHS_CALL_APP
                 theme.SetBaseTheme(Theme.Dark);
             }
             paletteHelper.SetTheme(theme);
-
         }
 
+
+        
+        // Button Clicks
         private void exitApp(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void loginBtn_Click(object sender, RoutedEventArgs e)
+
+        private void Login_Load(object sender, EventArgs e)
         {
-            
+
+
+            cn = new MySqlConnection();
+
         }
 
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            if(txtPassword.Password != string.Empty || txtUsername.Text != string.Empty)
+            {
+                cmd = new MySqlCommand("Select * from Accounts where username='" + txtUsername.Text + "' and password="+txtPassword.Password+"'", cn);
+
+            }
+       
+            
+            
+            
+            // Login to App
+            //Menu dashboard = new Menu();
+            //dashboard.Show();
+            //this.Close();
+
+        }
+
+
+
+        // Allows window to be dragged
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);

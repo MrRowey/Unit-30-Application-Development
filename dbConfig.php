@@ -1,6 +1,6 @@
 <?php
  
-$dbhost = "localhsot";
+$dbhost = "localhost";
 $dbName = "nhs";
 $dbUser = "root";
 $dbpass = "";

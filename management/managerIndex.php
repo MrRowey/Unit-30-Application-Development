@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 	<!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -38,12 +38,12 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="login.php">
+                <a class="nav-link" href="tables.html">
                 	<i class="fas fa-fw fa-table"></i>
-                    <span>Login</span></a>
+                    <span>Logout</span></a>
             </li>
 
-	        <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block">
 
             <div class="sidebar-card d-none d-lg-flex ">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
@@ -136,6 +136,8 @@
                         </div>
                     </div>
 
+                    <!-- Content Row -->
+
                     <div class="row">
                         <!-- Team Call Success -->
                         <div class="col-xl-8 col-lg-12">
@@ -171,6 +173,7 @@
                 </div>
             </div>
 
+            <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">

@@ -15,23 +15,114 @@
         <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
             <StackPanel>
                 <TextBlock Margin="0 0 0 0" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold" Text="NHS Call System"/>
-                <Grid Height="565" Margin="20 25 20 25">
+                <Grid Height="630" Margin="20 25 20 25">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="88*"/>
+                        <RowDefinition Height="88*"/>
+                        <RowDefinition Height="88*"/>
+                        <RowDefinition Height="88*"/>
+                        <RowDefinition Height="88*"/>
+                        <RowDefinition Height="99*"/>
+                        <RowDefinition Height="40*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="40"/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
+                    <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="0">Record ID:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="recordID" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="0" Grid.Column="0" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="1">Handler ID:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="handlerID" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="0" Grid.Column="1" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="0">Forename:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="forname" FontSize="12"  BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="1" Grid.Column="0" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="1">Surname:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="surname" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="1" Grid.Column="1" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="2">PostCode:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="postcode" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="1" Grid.Column="2" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="2" Grid.Column="0">Town:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="town" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="2" Grid.Column="0" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="2" Grid.Column="1">Address:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="address" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="3" Grid.Column="0">What 3 Words:</Label>
+                    <TextBox Margin="14,25,13,10" x:Name="what1" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="3" Grid.Column="0" />
+
+                    <TextBox Margin="14,25,13,10" x:Name="what2" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="3" Grid.Column="1" />
+
+                    <TextBox Margin="14,25,13,10" x:Name="what3" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="3" Grid.Column="2" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="5" Grid.Column="0">AI Dignosis:</Label>
+                    <TextBox Margin="16,25,15,10" x:Name="AI" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="5" Grid.ColumnSpan="3" />
+
+                    <Label Margin="10,0,0,0" Grid.Row="4" Grid.Column="0" Grid.RowSpan="2">Care Type:</Label>
+                    <ComboBox Margin="14,25,13,10" x:Name="careType" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignComboBox}" Grid.Row="4" Grid.Column="0">
+                        <ComboBoxItem Margin="5 0 0 0 " Content = "A and E"/>
+                        <ComboBoxItem Margin="5 0 0 0 " Content = "Urgent Care"/>
+                    </ComboBox>
+
+                    <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="4">Comments:</Label>
+                    <TextBox Margin="16,25,15,10" x:Name="comments" FontSize="12" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3"/>
+
+                    <Button Margin="14 25 13 10 " x:Name="toSupivisor" Style="{StaticResource MaterialDesignFlatDarkBgButton}" materialDesign:ElevationAssist.Elevation="Dp0" Height="40" materialDesign:ButtonAssist.CornerRadius="10" FontSize="12" Content="Elevate to Supivisor" Grid.Row="3" Grid.Column="4"/>
+
+                    <Button Margin="14 25 13 10 " x:Name="toDoctor" Style="{StaticResource MaterialDesignFlatDarkBgButton}" materialDesign:ElevationAssist.Elevation="Dp0" Height="40" materialDesign:ButtonAssist.CornerRadius="10" FontSize="12" Content="Elevate to Doctor" Grid.Row="3" Grid.Column="5"/>
+
+                    <Button Margin="14 25 13 10 " x:Name="sendAmbulance" Background="Red" materialDesign:ElevationAssist.Elevation="Dp0" Height="40" materialDesign:ButtonAssist.CornerRadius="10" FontSize="12" Content="Dispatch Ambulance" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <Separator Margin="0 -45 0 0" Grid.Row="6" Grid.ColumnSpan="8"/>
+                    <Grid Grid.Row="6" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Margin="0 5 3 0" Grid.Row="0" FontSize="16" HorizontalAlignment="Right">Time:</Label>
+                        <TextBlock Margin="3 10 0 0" Grid.Row="0" Grid.Column="1" x:Name="currentTime" FontSize="16" Text="00:00:00" HorizontalAlignment="Left"/>
+                    </Grid>
+
+                    <Grid Grid.Row="6" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Margin="0 5 3 0" Grid.Row="0" FontSize="16" HorizontalAlignment="Right">Duration:</Label>
+                        <TextBlock Margin="3 10 0 0" Grid.Row="0" Grid.Column="1" x:Name="duration" FontSize="16" Text="00:00:00" HorizontalAlignment="Left"/>
+                    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </Grid>
-                
-                
+
+
 
 
 

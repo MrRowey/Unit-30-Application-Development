@@ -24,7 +24,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Margin="0 60 0 5" HorizontalAlignment="Center" FontSize="28" FontWeight="bold" Text="Main Dashboard" Grid.Row="0"/>
+                    <TextBlock Margin="0 50 0 0" HorizontalAlignment="Center" FontSize="28" FontWeight="bold" Text="Dashboard" Grid.Row="0"/>
 
                     <Button Margin="0 5 0 0" x:Name="callReportBtn" Style="{StaticResource MaterialDesignFlatAccentBgButton}" materialDesign:ElevationAssist.Elevation="Dp0" Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="New Call Report" Click="report_Click" Grid.Row="1"/>
 

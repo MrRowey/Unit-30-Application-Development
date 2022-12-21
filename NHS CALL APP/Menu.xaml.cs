@@ -31,7 +31,7 @@ namespace NHS_CALL_APP
             // Opening up Report Window
             CallSystem callSystem = new CallSystem();
             callSystem.Show();
-            this.Close();
+            Close();
         }
 
         private void userInfo_Click(object sender, RoutedEventArgs e)

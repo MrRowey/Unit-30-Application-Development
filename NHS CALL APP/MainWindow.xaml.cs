@@ -12,8 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+//Using namespaces
 using MaterialDesignThemes.Wpf;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace NHS_CALL_APP
 {
@@ -22,85 +25,88 @@ namespace NHS_CALL_APP
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Create Private Varables
+        private string conn;
+        private MySqlConnection connect;
+        
         public MainWindow()
         {
             InitializeComponent();
         }
-
-
-
-
-
-
-
-
-
-
-
-        // Dark Theme
-        public bool IsDarkTheme { get; set; }
-        private readonly PaletteHelper paletteHelper = new PaletteHelper();
-        private void toggleTheme(object sender, RoutedEventArgs e)
+        
+        // Create the Connection to the MySql Database
+        private void db_connection()
         {
-            ITheme theme = paletteHelper.GetTheme();
-            if (IsDarkTheme = theme.GetBaseTheme() == BaseTheme.Dark)
+            try
             {
-                IsDarkTheme= false;
-                theme.SetBaseTheme(Theme.Light);
+                conn = "server=localhost;database=accounts;uid=root;pwd=;";
+                connect = new MySqlConnection(conn);
+                connect.Open();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
+        // Checks that the Username & Passwords are in the database
+        private bool validate_login(string user, string pass)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "Select * from desktop where username=@user and password=@pass";
+            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@pass", pass);
+            cmd.Connection = connect;
+            MySqlDataReader login = cmd.ExecuteReader();
+            if (login.Read())
+            {
+                connect.Close();
+                return true;
             }
             else
             {
-                IsDarkTheme= true;
-                theme.SetBaseTheme(Theme.Dark);
+                connect.Close();
+                return false;
             }
-            paletteHelper.SetTheme(theme);
         }
 
+        // runs the validaion check on login click to see if detaisl ented are correct.
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            string user = txtUsername.Text;
+            string pass = txtPassword.Password;
+            if (user == "" || pass == "")
+            {
+                MessageBox.Show("Please Enter both User ID and Password");
+                return;
+            }
+            bool r = validate_login(user, pass);
+            if (r)
+            {
+                Menu dashboard = new Menu();
+                dashboard.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("incorrect login");
+            }
 
-        
+        }
+
         // Button Clicks
         private void exitApp(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-
-            cn = new MySqlConnection();
-
-        }
-
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            if(txtPassword.Password != string.Empty || txtUsername.Text != string.Empty)
-            {
-                cmd = new MySqlCommand("Select * from Accounts where username='" + txtUsername.Text + "' and password="+txtPassword.Password+"'", cn);
-
-            }
-       
-            
-            
-            
-            // Login to App
-            //Menu dashboard = new Menu();
-            //dashboard.Show();
-            //this.Close();
-
-        }
-
-
-
+          
         // Allows window to be dragged
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
             DragMove();
         }
-
 
     }
 }

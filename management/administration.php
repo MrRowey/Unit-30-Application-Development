@@ -8,7 +8,7 @@ session_start();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>NHS Management - Dashboard</title>
+    <title>NHS Management - Administration</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -34,8 +34,8 @@ session_start();
             	Account
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="../logout.php">
-                	<i class="fa-solid fa-right-from-bracket"></i>
+                <a class="nav-link" href="tables.html">
+                	<i class="fa-solid fa-table"></i>
                     <span>Logout</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">

@@ -1,66 +1,89 @@
 <?php
+// Start the session
 session_start();
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]  === true){
+// checking if the user is allready logged into an account
+if(isset($_SESSION["loggedin"])){
     header("location: management/managerIndex.php");
     exit;
 }
 
-require_once "dbConfig.php";
+// Add the DB config
+require_once "config.php";
 
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
- 
+
+// Dealing with incoming data from login
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+
+    // check if username is empty
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
-    } else{
+        $username_err = "Please enter Your User ID";
+    } else {
         $username = trim($_POST["username"]);
     }
-    
+
+    // check if password is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
-    } else{
+        $password_err = "Please enter your Password";
+    }else{
         $password = trim($_POST["password"]);
     }
-    
+
+    // Validated Login Details
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT id, staff_id, password FROM account WHERE staff_id = ?";
-        
-        if($stmt = $mysqli->prepare($sql)){
-            $stmt->bind_param("s", $param_username);
-            
+        // Select Staement
+        $sql = "SELECT id, username, password_hash FROM web WHERE username = ?";
+
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Binding varalbles to the statment
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+
+            // Seting the parameters
             $param_username = $username;
-            
-            if($stmt->execute()){
-                $stmt->store_result();
-                
-                if($stmt->num_rows == 1){                    
-                    $stmt->bind_result($id, $username, $hashed_password);
-                    if($stmt->fetch()){
-                        if(password_verify($password, $hashed_password)){
+
+            // Atempt to run the statemnet
+            if(mysqli_stmt_execute($stmt)){
+                // Store the result of the statment
+                mysqli_stmt_store_result($stmt);
+
+                // Check if username exsists then check password
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    // binding the result Variabels
+                    mysqli_stmt_bind_result($stmt, $id, $username, $password_hash);
+                    if(mysqli_stmt_fetch($stmt)){
+                        if(password_verify($password, $password_hash)){
+                            // Password is correct
+
+                            // Start new session
                             session_start();
-                            
-                            $_SESSION["loggedin"] = true;
+
+                            // store data isn session variables
+                            $_SESSION["loggedin"] == true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
-                            header("location: welcome.php");
-                        } else{
-                            $login_err = "Invalid username or password.";
+                            $_SESSION["username"] = $username;
+
+                            // redidec after login
+                            header("location: management/managerIndex.php");
+                        } else {
+                            // password not vaild, error msg
+                            $login_err = "Invailid Password.";
                         }
                     }
-                } else{
-                    $login_err = "Invalid username or password.";
+                } else {
+                    // username dose not exsist, error msg
+                    $login_err = "Invalid User ID";
                 }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
+            } else {
+                echo "Oops! Somthing when wrong. Please try again later.";
             }
-            $stmt->close();
+            // close statment
+            mysqli_stmt_close($stmt);
         }
     }
-    $mysqli->close();
+    // close connection
+    mysqli_close($link);
 }
 ?>
 
@@ -72,19 +95,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <title>NHS Management - Login</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
 
 </head>
-
 <body class="bg-gradient-primary">
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -99,24 +115,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     </div>
                                     <?php
                                         if(!empty($login_err)){
-                                            echo '<div class="alert allert-danger">' . $login_err . '</div>';
+                                            echo '<div class="alert alert-danger">' . $login_err . '</div>';
                                         }
                                     ?>
-
                                     <form class="user" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <div class="form-group">
-                                            <input type="number" class="form-control form-control-user <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
-                                                placeholder="Enter Your Employee Number..." name="username" value="<?php echo $username; ?>">
+                                            <label>User ID: </label>
+                                            <input type="number" name="username" id="username" class="form-control form-control-user <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
-                                                id="exampleInputPassword" placeholder="Password">
-                                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                                            <label>Password: </label>
+                                            <input type="password" name="password" id="password" class="form-control form-control-user <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                                            <span class="invalid-feedback"><?php echo $password_err ?></span>
                                         </div>
-                                        <a href="/management/managerIndex.php" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary" value="Login">
+                                        </div>
+                                        <p>Accout Reg <a href="register.php"> here </a></p>
                                     </form>
                                 </div>
                             </div>

@@ -1,8 +1,8 @@
 <?php
 // Database Credentials.
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'basicUser');
-define('DB_PASSWORD', 'L9z9gNsCcVcUe)ja');
+define('DB_USERNAME', 'handlerUser');
+define('DB_PASSWORD', '5nXSlxizqSBIv0yh');
 define('DB_NAME', 'nhs');
 
 // Attemt Connection to MySQL Database

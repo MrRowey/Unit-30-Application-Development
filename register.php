@@ -5,6 +5,7 @@ require_once "config.php";
 // Definigns varaibles
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
+$managment = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -15,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores";
     } else {
         // Prepare a se;ect statement
-        $sql = "SELECT id FROM web WHERE username = ?";
+        $sql = "SELECT id FROM accounts WHERE userid = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables
@@ -62,19 +63,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
+    if(isset($_POST['managment'])){
+        $managment == 1;
+    } else{
+        $managment == 0;
+    }
+
+
     // Check inputs befoer inserting into database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($managment)){
 
         // Prepare inset stament
-        $sql = "INSERT INTO web (username, password_hash) VALUES (?,?)";
+        $sql = "INSERT INTO accounts (userid, password, managment) VALUES (?,?,?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_managment);
 
             // set paratmerts
             $param_username = $username;
             // Creating the hashed password
-            $param_password = password_hash($password, PASSWORD_DEFAULT);
+            $param_password = $password; //password_hash($password, PASSWORD_DEFAULT);
+
+            $param_managment = $managment;
 
             // try to execure prepared stament
             if(mysqli_stmt_execute($stmt)){
@@ -131,6 +141,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     <label>Confirm Password:</label>
                                     <input type="password" name="confirm_password" class="form-control form-control-user <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                                     <span class="invalid-feedback"> <?php echo $confirm_password_err ?></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="managment" class="btn-check" id="btn-check" autocomplete="off">
+                                    <label>Is Management?</label>
                                 </div>
                                     <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
                             </form>

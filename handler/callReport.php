@@ -1,36 +1,36 @@
 <?php
 require_once 'configHandler.php';
+
 $t = time();
-
-
-
-
-
-
-
 
 $countiesSQL = 'SELECT * FROM counties';
 $countiesResult = mysqli_query($conn, $countiesSQL);
 
 
+if ($_POST["submit"]){
+    echo "Button Cliked";
+
+    $var_Forname = $_POST[""];
+    $var_Surname = $_POST[""];
+    $var_Address = $_POST[""];
+    $var_Counties = $_POST[""];
+    $var_Postcode = $_POST[""];
+    $var_ContactNumber = $_POST[""];
+    $var_HandlerID = $_POST[""];
+    $var_W3W_1 = $_POST[""];
+    $var_W3W_2 = $_POST[""];
+    $var_W3W_3 = $_POST[""];
+    $var_Notes = $_POST[""];
+    $var_Ambulance = $_POST[""];
+    $var_ElevateCall = $_POST[""];
+    $var_NusanceCall = $_POST[""];
+    $var_CareType = $_POST[""];
+    $var_Outcome = $_POST[""];
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 ?>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -162,9 +162,21 @@ $countiesResult = mysqli_query($conn, $countiesSQL);
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-control">
-
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="careType"> Care Type: </label>
+                                        <select class="form-control" id="careType">
+                                            <option value="" disabled selected></option>
+                                            <option value="1">Urgent Care</option>
+                                            <option value="2">A&E</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="inputOutcome"> Outcome:</label>
+                                        <input type="text" class="form-control" id="inputOutcome">
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary" type="submit" style="font-size: 24px;">Submit Report</button>
                             </form>
                         </div>             
                     </div>

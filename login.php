@@ -24,7 +24,6 @@
                                     <div class="d-grid gap-2 col-6 mx-auto">
                                         <button class="btn btn-primary" style="margin: 5%; font-size: 24px;" onclick="location.href='../login/loginHandler.php'">Handler</button>
                                         <button class="btn btn-primary" style="margin: 5%; font-size: 24px;" onclick="location.href='../login/loginManager.php'">Manager</button>
-                                        <button class="btn btn-primary" style="margin: 5%; font-size: 24px;" onclick="location.href='../login/loginAdmin.php'">Admin</button>
                                     </div>
                                 </div>
                             </div>

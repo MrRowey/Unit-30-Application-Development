@@ -3,13 +3,13 @@
 session_start();
 
 // checking if the user is allready logged into an account
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: handler/dashboard.php");
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    header("location: managerment/dashboard.php");
     exit;
 }
 
 // Add the DB config
-require_once "../config.php";
+require_once "config.php";
 
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validated Login Details
     if(empty($username_err) && empty($password_err)){
         // Select Staement
-        $sql = "SELECT ID,User,Password,Role_ID FROM accounts WHERE User = ?";
+        $sql = "SELECT ID,userid,password,Role_ID FROM accounts WHERE userid = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Binding varalbles to the statment
@@ -52,9 +52,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exsists then check password
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // binding the result Variabels
-                    mysqli_stmt_bind_result($stmt, $id, $username, $Password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password,$role);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $Password)){
+                        if(password_verify($password, $hashed_password)){
                             // Password is correct
                             // Start new session
                             session_start();
@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["user"] = $username;
+                            $_SESSION["role_id"] = $role;
 
                             // redirect after login
                             header("location: handler/dashboard.php");

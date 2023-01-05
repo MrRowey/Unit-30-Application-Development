@@ -1,7 +1,8 @@
 <?php
-require_once 'configHandler.php';
 
-$t = time();
+
+
+require_once('configHandler.php');
 
 $countiesSQL = 'SELECT * FROM counties';
 $countiesResult = mysqli_query($conn, $countiesSQL);
@@ -10,22 +11,30 @@ $countiesResult = mysqli_query($conn, $countiesSQL);
 if ($_POST["submit"]){
     echo "Button Cliked";
 
+    // Get Data
+
+    // Pacient Data
     $var_Forname = $_POST[""];
     $var_Surname = $_POST[""];
+
     $var_Address = $_POST[""];
     $var_Counties = $_POST[""];
     $var_Postcode = $_POST[""];
     $var_ContactNumber = $_POST[""];
     $var_HandlerID = $_POST[""];
-    $var_W3W_1 = $_POST[""];
-    $var_W3W_2 = $_POST[""];
-    $var_W3W_3 = $_POST[""];
     $var_Notes = $_POST[""];
     $var_Ambulance = $_POST[""];
     $var_ElevateCall = $_POST[""];
     $var_NusanceCall = $_POST[""];
     $var_CareType = $_POST[""];
     $var_Outcome = $_POST[""];
+
+    
+    $sql = "INSERT INTO pacient ";
+    $sql1 =
+
+
+
 
 
 }
@@ -92,7 +101,7 @@ if ($_POST["submit"]){
                                     <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address">
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-3">
                                         <label for="inputCounties"> Counties:</label>
                                         <select class="form-control" id="inputCounties">
                                         <option value="" disabled selected> Select Pacient County</option>
@@ -106,9 +115,13 @@ if ($_POST["submit"]){
                                         <label for="inputPostcode"> PostCode: </label>
                                         <input type="text" class="form-control" id="inputPostcode" placeholder="S67 3HP">
                                     </div>
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-4">
                                         <label for="inputNumber"> Contact Number: </label>
                                         <input type="number" class="form-control" id="inputNumber" placeholder="Enter Contact Number">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputDate"> D.O.B: </label>
+                                        <input type="date" class="form-control" id="inputDate" placeholder="Enter D.O.B">
                                     </div>
                                 </div>
                                 <hr>
@@ -118,24 +131,6 @@ if ($_POST["submit"]){
                                         <input type="number" class="form-control" id="inputHandler">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="inputWhat1">What 3 Words (Word 1):</label>
-                                        <input type="text" class="form-control" id="inputHandler">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputWhat2"> What 3 Words (Word 2):</label>
-                                        <input type="text" class="form-control" id="inputHandler">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputWhat3"> What 3 Words (Word 3):</label>
-                                        <input type="text" class="form-control" id="inputHandler">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputNotes"> Notes: </label>
-                                    <textarea class="form-control" id="inputNotes" rows="5"></textarea>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
                                         <label for="sendAmbulance"> Send Ambulance: </label>
                                         <select class="form-control" id="sendAmbulance">
                                             <option value="" disabled selected>Select Option</option>
@@ -143,7 +138,7 @@ if ($_POST["submit"]){
                                             <option value="No">No</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                         <label for="elevateCall"> Elevate Call: </label>
                                         <select class="form-control" id="sendAmbulance">
                                             <option value="" disabled selected>Select Option</option>
@@ -153,7 +148,7 @@ if ($_POST["submit"]){
                                             <option value="Doctor"> Doctor</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                         <label for="nusanceCall"> Nusiance Call: </label>
                                         <select class="form-control" id="sendAmbulance">
                                             <option value="" disabled selected>Select Option</option>
@@ -161,6 +156,10 @@ if ($_POST["submit"]){
                                             <option value="No"> No</option>
                                         </select>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputNotes"> Notes: </label>
+                                    <textarea class="form-control" id="inputNotes" rows="5"></textarea>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
@@ -176,7 +175,7 @@ if ($_POST["submit"]){
                                         <input type="text" class="form-control" id="inputOutcome">
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit" style="font-size: 24px;">Submit Report</button>
+                                <input class="btn btn-primary" type="submit" style="font-size: 24px;" value="Submit Report">
                             </form>
                         </div>             
                     </div>

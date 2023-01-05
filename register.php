@@ -3,9 +3,12 @@
 require_once "config.php";
 
 // Definigns varaibles
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
-$managment = "";
+$username = $password = $confirm_password = $role = "";
+$username_err = $password_err = $confirm_password_err = $role_err = "";
+
+$roleSQL = "SELECT ID, Type FROM role";
+$roleResult = mysqli_query($link, $roleSQL);
+
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -15,21 +18,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
         $username_err = "Username can only contain letters, numbers, and underscores";
     } else {
-        // Prepare a se;ect statement
-        $sql = "SELECT id FROM accounts WHERE userid = ?";
+        // Prepare a select statement
+        $sql = "SELECT id FROM accounts WHERE user = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables
             mysqli_stmt_bind_param($stmt, "s", $param_username);
-
-            // set parameters
+            // Set parameters
             $param_username = trim($_POST["username"]);
-
             // Attempt to execute the statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
-
+                
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $username_err = "This usernmae is already taken.";
                 } else{
@@ -38,7 +39,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
             // Close Statment
             mysqli_stmt_close($stmt);
         }
@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate Password
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please endter a password.";
+        $password_err = "Please enter a password.";
     } elseif(strlen(trim($_POST["password"])) < 6){
         $password_err = "Password must have atleast 6 characters.";
     } else{
@@ -63,41 +63,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    if(isset($_POST['managment'])){
-        $managment == 1;
-    } else{
-        $managment == 0;
+    // Validate Role Selected
+    if(empty($_POST["role"])){
+        $role_err = "Please Select a Role";
+    } else {
+        $role = trim($_POST["role"]);
     }
 
-
     // Check inputs befoer inserting into database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($managment)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($role_err)){
 
         // Prepare inset stament
-        $sql = "INSERT INTO accounts (userid, password, managment) VALUES (?,?,?)";
+        $sql1 = "INSERT INTO accounts (user, password, role_id) VALUES (?,?,?)";
 
-        if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_managment);
-
-            // set paratmerts
+        if($stmt = mysqli_prepare($link,$sql1)){
+            // Bining the varables to the statement
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_role);
+            
+            // Set paramters
             $param_username = $username;
-            // Creating the hashed password
-            $param_password = $password; //password_hash($password, PASSWORD_DEFAULT);
+            $param_password = password_hash($password, PASSWORD_DEFAULT); // Create a password hash
+            $param_role = $role;
 
-            $param_managment = $managment;
-
-            // try to execure prepared stament
+            // try to execute prepared stament
             if(mysqli_stmt_execute($stmt)){
-                // redirect to login page
+                // Redirect to login page
                 header("location: login.php");
-            }else{
+            } else{
                 echo "Oops! Somthing when wrong. Please try again later."; 
             }
             // Close statment
             mysqli_stmt_close($stmt);
         }
     }
-
     // Close connection
     mysqli_close($link);
 }
@@ -108,17 +106,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>NHS Management - Add User</title>
-    <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Custom styles for this template-->
     <link href="css/stylesheet.css" rel="stylesheet">
 </head>
 <body class="bg-gradient-primary">
     <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
@@ -143,8 +138,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     <span class="invalid-feedback"> <?php echo $confirm_password_err ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" name="managment" class="btn-check" id="btn-check" autocomplete="off">
-                                    <label>Is Management?</label>
+                                    <label>Role:</label>    
+                                    <select class="form-control" name="role" id="role">
+                                        <option value="" selected disabled> Select Role </option>
+                                        <option value="1" > Handler </option>
+                                        <option value="2" > Manager </option>
+                                    </select>
                                 </div>
                                     <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
                             </form>

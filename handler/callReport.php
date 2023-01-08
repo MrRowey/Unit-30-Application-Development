@@ -34,6 +34,17 @@ if(isset($_POST["form_submit"])){
     $var_CareType = $_POST["care"];
     $var_Outcome = $_POST["outcome"];
     
+    // Insert into Pacient
+    $sql = "INSERT INTO  () VALUES ()";
+
+    // Insert Into Pacient_Address
+    $sql1 = "INSERT INTO  () VALUES ()";
+
+    // Insert into Call Report
+    $sql2 = "INSERT INTO  () VALUES ()";
+
+
+
     $sql =
      "INSERT INTO callreport (forname, surname, address, countiesID, postcode, contactNumber, dob, handler, amubulanceDispatched, callTransfur, nusanceCall, notes, careType, outcome) VALUES ('$var_Forname','$var_Surname','$var_Address', '$var_Counties','$var_Postcode','$var_ContactNumber', '$var_dob','$var_HandlerID','$var_Ambulance', '$var_ElevateCall','$var_NusanceCall','$var_Notes', '$var_CareType','$var_Outcome')";
 

@@ -1,44 +1,49 @@
 <?php
-
-
-
 require_once('configHandler.php');
 
 $countiesSQL = 'SELECT * FROM counties';
-$countiesResult = mysqli_query($conn, $countiesSQL);
+$countiesResult = $conn->query($countiesSQL);
+
+$roleSQL = 'SELECT * FROM role';
+$roleResult = $conn->query($roleSQL);
 
 
-if ($_POST["submit"]){
-    echo "Button Cliked";
+if(isset($_POST["form_submit"])){
+    echo "<p>Button Cliked</p>";
 
-    // Get Data
 
-    // Pacient Data
-    $var_Forname = $_POST[""];
-    $var_Surname = $_POST[""];
+    //Pacient
+    $var_Forname = $_POST["forname"];
+    $var_Surname = $_POST["surname"];
+    $var_ContactNumber = $_POST["connumber"];
+    $var_dob = $_POST["date"];
 
-    $var_Address = $_POST[""];
-    $var_Counties = $_POST[""];
-    $var_Postcode = $_POST[""];
-    $var_ContactNumber = $_POST[""];
-    $var_HandlerID = $_POST[""];
-    $var_Notes = $_POST[""];
-    $var_Ambulance = $_POST[""];
-    $var_ElevateCall = $_POST[""];
-    $var_NusanceCall = $_POST[""];
-    $var_CareType = $_POST[""];
-    $var_Outcome = $_POST[""];
 
+    //Pacient_Address
+    $var_Address = $_POST["address"];
+    $var_Counties = $_POST["counties"];
+    $var_Postcode = $_POST["postcode"];
+
+
+    //Call Report
+    $var_HandlerID = $_POST["handler"];
+    $var_Notes = $_POST["notes"];
+    $var_Ambulance = $_POST["ambulance"];
+    $var_ElevateCall = $_POST["elevatecall"];
+    $var_NusanceCall = $_POST["nusance"];
+    $var_CareType = $_POST["care"];
+    $var_Outcome = $_POST["outcome"];
     
-    $sql = "INSERT INTO pacient ";
-    $sql1 =
+    $sql =
+     "INSERT INTO callreport (forname, surname, address, countiesID, postcode, contactNumber, dob, handler, amubulanceDispatched, callTransfur, nusanceCall, notes, careType, outcome) VALUES ('$var_Forname','$var_Surname','$var_Address', '$var_Counties','$var_Postcode','$var_ContactNumber', '$var_dob','$var_HandlerID','$var_Ambulance', '$var_ElevateCall','$var_NusanceCall','$var_Notes', '$var_CareType','$var_Outcome')";
 
-
-
-
-
+    if(mysqli_query($conn,$sql)){
+        echo "New Recoerd Created";
+    } else {
+        echo "ERROR: " . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 }
-
 ?>
 <html lang="en">
 <head>
@@ -50,7 +55,7 @@ if ($_POST["submit"]){
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../css/stylesheet.css" rel="stylesheet">
 </head>
-<body id="page-top" onload="timer()">
+<body id="page-top">
     <div id="time"></div>
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -84,26 +89,26 @@ if ($_POST["submit"]){
                 <div class="container-fluid" style="margin-top: 1%;">
                     <div class="card" style="width: 100%;">
                         <div class="card-body">
-                            <form action="">
+                            <form action="callReport.php" method="post">
                                 <h3 style="font-weight: 600;">Caller Details</h3>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputForname"> Forname: </label>
-                                        <input type="text" class="form-control" id="inputForname" placeholder="Enter Forname">
+                                        <input name="forname" type="text" class="form-control" id="inputForname" placeholder="Enter Forname">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputSurname"> Surname: </label>
-                                        <input type="text" class="form-control" id="inputSurname" placeholder="Enter Surname">
+                                        <input name="surname" type="text" class="form-control" id="inputSurname" placeholder="Enter Surname">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress"> Address: </label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address">
+                                    <input name="address" type="text" class="form-control" id="inputAddress" placeholder="Enter Address">
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="inputCounties"> Counties:</label>
-                                        <select class="form-control" id="inputCounties">
+                                        <select name="counties" class="form-control" id="inputCounties">
                                         <option value="" disabled selected> Select Pacient County</option>
                                         <?php while($row = mysqli_fetch_array($countiesResult)){
                                             echo '<option value="' . $row["ID"] . '">' . $row["Name"] . '</option>';
@@ -113,26 +118,26 @@ if ($_POST["submit"]){
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputPostcode"> PostCode: </label>
-                                        <input type="text" class="form-control" id="inputPostcode" placeholder="S67 3HP">
+                                        <input name="postcode" type="text" class="form-control" id="inputPostcode" placeholder="S67 3HP">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputNumber"> Contact Number: </label>
-                                        <input type="number" class="form-control" id="inputNumber" placeholder="Enter Contact Number">
+                                        <input name="connumber" type="number" class="form-control" id="inputNumber" placeholder="Enter Contact Number">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputDate"> D.O.B: </label>
-                                        <input type="date" class="form-control" id="inputDate" placeholder="Enter D.O.B">
+                                        <input name="date" type="date" class="form-control" id="inputDate" placeholder="Enter D.O.B">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="inputHandler"> Handler ID: </label>
-                                        <input type="number" class="form-control" id="inputHandler">
+                                        <input name="handler" type="number" class="form-control" id="inputHandler">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="sendAmbulance"> Send Ambulance: </label>
-                                        <select class="form-control" id="sendAmbulance">
+                                        <select name="ambulance" class="form-control" id="sendAmbulance">
                                             <option value="" disabled selected>Select Option</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -140,17 +145,17 @@ if ($_POST["submit"]){
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="elevateCall"> Elevate Call: </label>
-                                        <select class="form-control" id="sendAmbulance">
+                                        <select name="elevatecall" class="form-control" id="sendAmbulance">
                                             <option value="" disabled selected>Select Option</option>
-                                            <option value="Not Required">Not Required</option>
-                                            <option value="Supivisor"> Supivisor</option>
-                                            <option value="Nurse"> Nurse</option>
-                                            <option value="Doctor"> Doctor</option>
+                                            <?php while($row = mysqli_fetch_array($roleResult)){
+                                                echo '<option value="' . $row["ID"] . '">' . $row["Type"] . '</option>';
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="nusanceCall"> Nusiance Call: </label>
-                                        <select class="form-control" id="sendAmbulance">
+                                        <select name="nusance" class="form-control" id="sendAmbulance">
                                             <option value="" disabled selected>Select Option</option>
                                             <option value="Yes"> Yes</option>
                                             <option value="No"> No</option>
@@ -159,23 +164,23 @@ if ($_POST["submit"]){
                                 </div>
                                 <div class="form-group">
                                     <label for="inputNotes"> Notes: </label>
-                                    <textarea class="form-control" id="inputNotes" rows="5"></textarea>
+                                    <textarea name="notes" class="form-control" id="inputNotes" rows="5"></textarea>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="careType"> Care Type: </label>
-                                        <select class="form-control" id="careType">
-                                            <option value="" disabled selected></option>
-                                            <option value="1">Urgent Care</option>
-                                            <option value="2">A&E</option>
+                                        <select name="care" class="form-control" id="careType">
+                                            <option value="" disabled selected>Select Care Type</option>
+                                            <option value="Urgent Care">Urgent Care</option>
+                                            <option value="A&E">A&E</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-8">
                                         <label for="inputOutcome"> Outcome:</label>
-                                        <input type="text" class="form-control" id="inputOutcome">
+                                        <input name="outcome" type="text" class="form-control" id="inputOutcome">
                                     </div>
                                 </div>
-                                <input class="btn btn-primary" type="submit" style="font-size: 24px;" value="Submit Report">
+                                <input name="from_submit" class="btn btn-primary" type="submit" style="font-size: 24px;" value="Submit Report">
                             </form>
                         </div>             
                     </div>

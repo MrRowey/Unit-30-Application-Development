@@ -1,9 +1,13 @@
 <?php
-// Database Connection
-$conn = mysqli_connect('localhost','handlerUser','5nXSlxizqSBIv0yh','nhs');
+$severname = "localhost";
+$user = "handlerUser";
+$pass = "5nXSlxizqSBIv0yh"; // 5nXSlxizqSBIv0yh
+$dbname = "nhs";
 
-// Check Connection
-if(mysqli_connect_errno()){
-    exit("ERROR: Could Not Connect." . mysqli_connect_error());
+$conn = mysqli_connect($severname, $user, $pass, $dbname);
+
+if ($conn === false){
+    die("Connect Failed: " . mysqli_connect_error());
 }
+echo "Connect Succses";
 ?>

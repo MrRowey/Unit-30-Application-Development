@@ -12,41 +12,24 @@ if(isset($_POST["form_submit"])){
     echo "<p>Button Cliked</p>";
 
 
-    //Pacient
+    // CallReport
     $var_Forname = $_POST["forname"];
     $var_Surname = $_POST["surname"];
-    $var_ContactNumber = $_POST["connumber"];
-    $var_dob = $_POST["date"];
-
-
-    //Pacient_Address
     $var_Address = $_POST["address"];
     $var_Counties = $_POST["counties"];
     $var_Postcode = $_POST["postcode"];
-
-
-    //Call Report
+    $var_Contact = $_POST["connumber"];
+    $var_dob = $_POST["date"];
     $var_HandlerID = $_POST["handler"];
-    $var_Notes = $_POST["notes"];
     $var_Ambulance = $_POST["ambulance"];
-    $var_ElevateCall = $_POST["elevatecall"];
-    $var_NusanceCall = $_POST["nusance"];
+    $var_Elevate = $_POST["elevatecall"];
+    $var_Nusance = $_POST["nusance"];
+    $var_Notes = $_POST["notes"];
     $var_CareType = $_POST["care"];
     $var_Outcome = $_POST["outcome"];
     
     // Insert into Pacient
-    $sql = "INSERT INTO  () VALUES ()";
-
-    // Insert Into Pacient_Address
-    $sql1 = "INSERT INTO  () VALUES ()";
-
-    // Insert into Call Report
-    $sql2 = "INSERT INTO  () VALUES ()";
-
-
-
-    $sql =
-     "INSERT INTO callreport (forname, surname, address, countiesID, postcode, contactNumber, dob, handler, amubulanceDispatched, callTransfur, nusanceCall, notes, careType, outcome) VALUES ('$var_Forname','$var_Surname','$var_Address', '$var_Counties','$var_Postcode','$var_ContactNumber', '$var_dob','$var_HandlerID','$var_Ambulance', '$var_ElevateCall','$var_NusanceCall','$var_Notes', '$var_CareType','$var_Outcome')";
+    $sql = "INSERT INTO callreport (forname,surname,address,countiesID,postcode,contactNumber,dob,handler,amubulanceDisapatched,callTransfur,nusanceCall,notes,careType,outcome) VALUES ('$var_Forname','$var_Surname','$var_Address','$var_Counties','$var_Postcode','$var_Contact','$var_dob','$var_HandlerID','$var_Ambulance','$var_Elevate','$var_Nusance','$var_Notes','$var_CareType','$var_Outcome')";
 
     if(mysqli_query($conn,$sql)){
         echo "New Recoerd Created";
@@ -70,7 +53,7 @@ if(isset($_POST["form_submit"])){
     <div id="time"></div>
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/handler/dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
                 <div class="sidebar-brand-text mx-3">NHS Handler</div>

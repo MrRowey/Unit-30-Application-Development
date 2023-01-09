@@ -1,8 +1,8 @@
 <?php
+// start the session
 session_start();
 $id = $_SESSION['userid'];
 $date = date('y-m-d h:i:s');
-require_once "configHandler.php";
 
 echo $date;
 
@@ -11,43 +11,46 @@ $sql = "INSERT INTO timesheet (UserID,timestamp) VALUES ('$id','$date')";
 mysqli_query($conn,$sql);
 
 
-
-
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>NHS Dashboard Handler</title>
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <title>NHS Management - Dashboard</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Custom styles for this template-->
+    <link href="/css/stylesheet.css" rel="stylesheet">
 </head>
+
 <body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-text mx-3">NHS Stats</div>
+                <div class="sidebar-brand-text mx-3">NHS Management</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                <a class="nav-link" href="index.html">
+                    <i class="fa-solid fa-gauge-simple-high"></i>
+                    <span>Dashboard</span>
+                </a>
             </li>
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
             	Account
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="/logout.php">
-                	<i class="fas fa-fw fa-table"></i>
+                <a class="nav-link" href="../logout.php">
+                	<i class="fa-solid fa-right-from-bracket"></i>
                     <span>Logout</span></a>
             </li>
-	        <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block">
             <div class="sidebar-card d-none d-lg-flex ">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="/img/undraw_rocket.svg">
                 <p class="text-center mb-2"><strong>NHS Web Dashboard</strong> v0.0.1</p>
             </div>
         </ul>
@@ -60,7 +63,9 @@ mysqli_query($conn,$sql);
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0"></h1>
 					</div>
+                    <h4>Successfull Calls</h4>
                     <div class="row">
+                        <!-- Yearly -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -70,15 +75,12 @@ mysqli_query($conn,$sql);
                                                 Yearly</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Monthy -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -88,15 +90,12 @@ mysqli_query($conn,$sql);
                                                 Monthly</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">215,000</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-						<!-- Earnings (Monthly) Card Example -->
+						<!-- Weekly -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
@@ -106,15 +105,12 @@ mysqli_query($conn,$sql);
                                                 Weekly</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">215,000</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-						<!-- Earnings (Monthly) Card Example -->
+                        <!-- Daily -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
@@ -124,14 +120,13 @@ mysqli_query($conn,$sql);
                                                 Daily</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">215,000</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Content Row -->
 
                     <div class="row">
                         <!-- Team Call Success -->
@@ -168,6 +163,7 @@ mysqli_query($conn,$sql);
                 </div>
             </div>
 
+            <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
